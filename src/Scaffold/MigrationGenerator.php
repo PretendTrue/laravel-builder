@@ -50,6 +50,7 @@ class MigrationGenerator extends BaseMigrationCreator
      * @return string
      *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     * @throws \Exception
      */
     public function builder($table, $fields)
     {
@@ -132,14 +133,16 @@ class MigrationGenerator extends BaseMigrationCreator
             $hasDefault = isset($field['default'])
                 && !is_null($field['default'])
                 && '' !== $field['default'];
-            if ($hasDefault) {
-                $column .= "->default('{$field['default']}')";
-            }
 
             if ($field['nullable']) {
                 $column .= '->nullable()';
             } elseif (!$hasDefault && 'string' === $field['type']) {
                 $column .= "->default('')";
+            } elseif (Str::contains(Str::ucfirst($field['type']), ['Integer', 'Decimal', 'Boolean']) && $hasDefault) {
+                // figure
+                $column .= "->default({$field['default']})";
+            } elseif ($hasDefault) {
+                $column .= "->default('{$field['default']}')";
             }
 
             if ($field['comment']) {
