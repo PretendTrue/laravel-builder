@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the pretendtrue/laravel-builder.
+ *
+ * (c) pretendtrue <play@pretendtrue.me>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace PretendTrue\LaravelBuilder\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -43,7 +52,6 @@ class ScaffoldController
             // Run migrate.
             Artisan::call('migrate');
             $paths['artisan_message'] = Artisan::output();
-
         } catch (\Exception $exception) {
             // Delete generated files if exception thrown.
             app('files')->delete($paths);

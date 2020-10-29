@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the pretendtrue/laravel-builder.
+ *
+ * (c) pretendtrue <play@pretendtrue.me>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace PretendTrue\LaravelBuilder;
 
 use Illuminate\Support\Facades\Route;
@@ -44,7 +53,7 @@ class BuilderServiceProvider extends ServiceProvider
             'namespace' => 'PretendTrue\LaravelBuilder\Http\Controllers',
             'middleware' => config('builder.middleware', 'web'),
         ], function () {
-            $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
+            $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
         });
     }
 
@@ -56,13 +65,12 @@ class BuilderServiceProvider extends ServiceProvider
      */
     protected function registerResources()
     {
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'builder');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'builder');
     }
 
     /**
      * Define the asset publishing configuration.
      * 定义资源文件发布配置。
-     *
      *
      * @return void
      */
@@ -70,11 +78,11 @@ class BuilderServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../public' => public_path('vendor/builder'),
+                __DIR__.'/../public' => public_path('vendor/builder'),
             ], 'builder-assets');
 
             $this->publishes([
-                __DIR__ . '/../config/builder.php' => config_path('builder.php'),
+                __DIR__.'/../config/builder.php' => config_path('builder.php'),
             ], 'builder-config');
         }
     }
@@ -88,7 +96,7 @@ class BuilderServiceProvider extends ServiceProvider
     protected function configure()
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/../config/builder.php', 'builder'
+            __DIR__.'/../config/builder.php', 'builder'
         );
     }
 
