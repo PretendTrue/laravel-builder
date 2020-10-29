@@ -2,6 +2,7 @@
 
 <p align="center"> Laravel 代码生成工具.</p>
 
+![StyleCI build status](https://github.styleci.io/repos/308207255/shield) 
 
 ## 安装
 
