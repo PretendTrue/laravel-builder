@@ -1,0 +1,28 @@
+{
+    "name": "pretendtrue/laravel-builder",
+    "description": "Laravel 代码生成工具",
+    "keywords": ["laravel", "builder", "generator"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "pretendtrue",
+            "email": "play@pretendtrue.me"
+        }
+    ],
+    "require": {
+        "php": "^7.3",
+        "laravel/framework": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "PretendTrue\\LaravelBuilder\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "PretendTrue\\LaravelBuilder\\BuilderServiceProvider"
+            ]
+        }
+    }
+}

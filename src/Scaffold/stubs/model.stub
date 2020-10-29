@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Models;
+
+DummyImportSoftDeletesTrait
+
+class DummyClass extends Model
+{
+    DummyUseSoftDeletesTrait
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        DummyFields
+    ];
+}
