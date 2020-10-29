@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the pretendtrue/laravel-builder.
+ *
+ * (c) pretendtrue <play@pretendtrue.me>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace PretendTrue\LaravelBuilder\Scaffold;
 
 use Illuminate\Support\Str;
@@ -21,24 +30,25 @@ class MigrationGenerator extends BaseMigrationCreator
     /**
      * Create a new migration creator instance.
      *
-     * @param  \Illuminate\Filesystem\Filesystem  $files
-     * @param  string  $comment
+     * @param string $comment
      *
      * @return void
      */
     public function __construct(Filesystem $files, $comment = '')
     {
-        parent::__construct($files, __DIR__ . '/stubs');
+        parent::__construct($files, __DIR__.'/stubs');
 
         $this->comment = $comment;
     }
 
     /**
-     * Create a migration file
+     * Create a migration file.
      *
      * @param $table
      * @param $fields
+     *
      * @return string
+     *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public function builder($table, $fields)
@@ -64,9 +74,10 @@ class MigrationGenerator extends BaseMigrationCreator
     /**
      * Populate the place-holders in the migration stub.
      *
-     * @param  string  $name
-     * @param  string  $stub
-     * @param  string|null  $table
+     * @param string      $name
+     * @param string      $stub
+     * @param string|null $table
+     *
      * @return string
      */
     protected function populateStub($name, $stub, $table)
@@ -76,13 +87,13 @@ class MigrationGenerator extends BaseMigrationCreator
                 'DummyClass',
                 'DummyTable',
                 'DummyStructure',
-                'DummyComment'
+                'DummyComment',
             ],
             [
                 $this->getClassName($name),
                 $table,
                 $this->tableStructure,
-                $this->comment
+                $this->comment,
             ],
             $stub
         );
@@ -94,13 +105,15 @@ class MigrationGenerator extends BaseMigrationCreator
      * Build the table blueprint.
      *
      * @param $fields
+     *
      * @return $this
+     *
      * @throws \Exception
      */
     private function buildingTableStructure($fields)
     {
         $fields = array_filter($fields, function ($field) {
-            return isset($field['column']) && ! empty($field['column']);
+            return isset($field['column']) && !empty($field['column']);
         });
 
         if (empty($fields)) {
@@ -117,15 +130,15 @@ class MigrationGenerator extends BaseMigrationCreator
             }
 
             $hasDefault = isset($field['default'])
-                && ! is_null($field['default'])
-                && $field['default'] !== '';
+                && !is_null($field['default'])
+                && '' !== $field['default'];
             if ($hasDefault) {
                 $column .= "->default('{$field['default']}')";
             }
 
             if ($field['nullable']) {
                 $column .= '->nullable()';
-            } elseif (! $hasDefault && $field['type'] === 'string') {
+            } elseif (!$hasDefault && 'string' === $field['type']) {
                 $column .= "->default('')";
             }
 

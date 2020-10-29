@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the pretendtrue/laravel-builder.
+ *
+ * (c) pretendtrue <play@pretendtrue.me>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace PretendTrue\LaravelBuilder\Scaffold;
 
 use Illuminate\Filesystem\Filesystem;
@@ -8,8 +17,6 @@ class ResourceGenerator extends Generator
 {
     /**
      * ResourceGenerator constructor.
-     *
-     * @param Filesystem|null $files
      */
     public function __construct(Filesystem $files = null)
     {
@@ -20,12 +27,14 @@ class ResourceGenerator extends Generator
      * Create a resource file.
      *
      * @param null $name
+     *
      * @return string
+     *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public function builder($name = null)
     {
-        $className = ucfirst($name) . 'Resource';
+        $className = ucfirst($name).'Resource';
         $path = app_path("Http/Resources/{$className}.php");
         $dir = $this->files->dirname($path);
 

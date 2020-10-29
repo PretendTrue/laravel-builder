@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the pretendtrue/laravel-builder.
+ *
+ * (c) pretendtrue <play@pretendtrue.me>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace PretendTrue\LaravelBuilder\Scaffold;
 
 use Illuminate\Filesystem\Filesystem;
@@ -8,8 +17,6 @@ class ModelGenerator extends Generator
 {
     /**
      * ModelGenerator constructor.
-     *
-     * @param Filesystem|null $files
      */
     public function __construct(Filesystem $files = null)
     {
@@ -19,9 +26,11 @@ class ModelGenerator extends Generator
     /**
      * Create a model file.
      *
-     * @param null $name
+     * @param null  $name
      * @param array $fields
+     *
      * @return string
+     *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public function builder($name = null, $fields = [])
@@ -29,7 +38,7 @@ class ModelGenerator extends Generator
         $className = is_null($name) ? 'Model' : ucfirst($name);
         $path = app_path("Models/{$className}.php");
 
-        if (! is_null($name) && $this->files->missing(app_path('Models/Model.php'))) {
+        if (!is_null($name) && $this->files->missing(app_path('Models/Model.php'))) {
             $this->builder();
         }
 
@@ -54,7 +63,7 @@ class ModelGenerator extends Generator
      *
      * @return $this
      */
-    private function replaceSoftDeletes(& $stub, $softDeletes)
+    private function replaceSoftDeletes(&$stub, $softDeletes)
     {
         $import = $use = '';
 
@@ -69,13 +78,14 @@ class ModelGenerator extends Generator
     }
 
     /**
-     * Replace dummy fields
+     * Replace dummy fields.
      *
      * @param $stub
      * @param $fields
+     *
      * @return $this
      */
-    private function replaceFields(& $stub, $fields)
+    private function replaceFields(&$stub, $fields)
     {
         $fillable = '';
 
