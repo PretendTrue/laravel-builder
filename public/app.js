@@ -2040,7 +2040,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       thead: ['Field Name', 'Type', 'Nullable', 'Key', 'Default', 'Comment'],
-      type: ['string', 'integer', 'text', 'unsignedMediumInteger'],
+      type: ['string', 'integer', 'tinyInteger', 'smallInteger', 'mediumInteger', 'bigInteger', 'unsignedInteger', 'unsignedTinyInteger', 'unsignedSmallInteger', 'unsignedMediumInteger', 'unsignedBigInteger', 'boolean', 'decimal', 'date', 'json', 'text', 'mediumText', 'longText'],
       keys: [{
         'label': 'Null',
         'value': ''
@@ -18615,8 +18615,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\code\laravel\packages\pretendtrue\laravel-builder\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\code\laravel\packages\pretendtrue\laravel-builder\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\code\development\packages\pretendtrue\laravel-builder\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\code\development\packages\pretendtrue\laravel-builder\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

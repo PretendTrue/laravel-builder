@@ -107,7 +107,12 @@
           'Field Name', 'Type', 'Nullable', 'Key', 'Default', 'Comment'
         ],
         type: [
-          'string', 'integer', 'text', 'unsignedMediumInteger'
+          'string',
+          'integer', 'tinyInteger', 'smallInteger', 'mediumInteger', 'bigInteger',
+          'unsignedInteger', 'unsignedTinyInteger', 'unsignedSmallInteger', 'unsignedMediumInteger', 'unsignedBigInteger',
+          'boolean', 'decimal',
+          'date', 'json',
+          'text', 'mediumText', 'longText'
         ],
         keys: [
           {
