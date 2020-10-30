@@ -34,7 +34,7 @@ class ResourceGenerator extends Generator
      */
     public function builder($name = null)
     {
-        $className = ucfirst($name).'Resource';
+        $className = "{$name}Resource";
         $path = app_path("Http/Resources/{$className}.php");
         $dir = $this->files->dirname($path);
 

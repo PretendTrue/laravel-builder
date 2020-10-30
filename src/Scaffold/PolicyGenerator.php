@@ -34,7 +34,7 @@ class PolicyGenerator extends Generator
      */
     public function builder($name = null)
     {
-        $className = ucfirst($name).'Policy';
+        $className = "{$name}Policy";
         $path = app_path("Policies/{$className}.php");
         $dir = $this->files->dirname($path);
 

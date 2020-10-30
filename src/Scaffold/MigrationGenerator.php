@@ -54,7 +54,7 @@ class MigrationGenerator extends BaseMigrationCreator
      */
     public function builder($table, $fields)
     {
-        $table = Str::plural($table);
+        $table = Str::plural(Str::snake($table));
 
         $migrationName = "create_{$table}_table";
 

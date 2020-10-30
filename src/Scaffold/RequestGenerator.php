@@ -34,7 +34,7 @@ class RequestGenerator extends Generator
      */
     public function builder($name = null)
     {
-        $className = ucfirst($name).'Request';
+        $className = "{$name}Request";
         $path = app_path("Http/Requests/{$className}.php");
         $dir = $this->files->dirname($path);
 

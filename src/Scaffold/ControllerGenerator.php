@@ -34,7 +34,7 @@ class ControllerGenerator extends Generator
      */
     public function builder($name)
     {
-        $className = ucfirst($name).'Controller';
+        $className = "{$name}Controller";
         $path = app_path("Http/Controllers/{$className}.php");
 
         $stub = $this->files->get($this->getStub('controller'));

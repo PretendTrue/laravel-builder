@@ -35,7 +35,7 @@ class ModelGenerator extends Generator
      */
     public function builder($name = null, $fields = [])
     {
-        $className = is_null($name) ? 'Model' : ucfirst($name);
+        $className = is_null($name) ? 'Model' : $name;
         $path = app_path("Models/{$className}.php");
 
         if (!is_null($name) && $this->files->missing(app_path('Models/Model.php'))) {
