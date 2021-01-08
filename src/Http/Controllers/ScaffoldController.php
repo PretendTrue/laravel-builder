@@ -24,6 +24,7 @@ class ScaffoldController
 {
     public function store(Request $request)
     {
+        dd($request->all());
         $paths = [];
 
         $name = $request->name;

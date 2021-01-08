@@ -7,10 +7,10 @@
 
     <title>Builder {{ config('app.name') ? ' - ' . config('app.name') : '' }}</title>
 
-    <link href="{{ asset(mix('app.css', 'vendor/builder')) }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset(mix('css/app.css', 'vendor/builder')) }}" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div id="builder" class="w-screen h-screen font-mono bg-gray-200">
+<div id="builder">
     <router-view></router-view>
 </div>
 
@@ -19,6 +19,6 @@
     window.Builder = @json($builderScriptVariables);
 </script>
 
-<script src="{{ asset(mix('app.js', 'vendor/builder')) }}"></script>
+<script src="{{ asset(mix('js/app.js', 'vendor/builder')) }}"></script>
 </body>
 </html>

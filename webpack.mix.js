@@ -1,5 +1,4 @@
 const mix = require('laravel-mix');
-const tailwindcss = require('tailwindcss');
 
 /*
  |--------------------------------------------------------------------------
@@ -12,12 +11,16 @@ const tailwindcss = require('tailwindcss');
  |
  */
 
-mix.setPublicPath('public')
-  .js('resources/js/app.js', 'public')
-  .sass('resources/sass/app.scss', 'public')
-  .options({
-    processCssUrls: false,
-    postCss: [ tailwindcss('./tailwind.js') ],
-  })
-  .version()
-  .copy('public', '../../../public/vendor/builder');
+mix.setPublicPath('public');
+
+mix.js('resources/src/app.js', 'public/js').vue({version: 3});
+mix.sass('resources/src/styles/app.scss', 'public/css');
+
+mix.options({
+  processCssUrls: false,
+  postCss: [ require("tailwindcss") ],
+})
+
+mix.copy('public', '../../../public/vendor/builder');
+
+mix.browserSync(process.env.MIX_APP_URL);

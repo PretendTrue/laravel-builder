@@ -1,4 +1,5 @@
 {
-    "/app.js": "/app.js?id=0c45f31c61083e27b581",
-    "/app.css": "/app.css?id=8c0ef7a55cdfd2c98cfb"
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/D:/code/development/public/vendor/builder/mix-manifest.json": "/D:/code/development/public/vendor/builder/mix-manifest.json"
 }
